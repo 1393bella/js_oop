@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script>
+
+        function Ninja(name) {
+            this.name = name;
+            this.health = 100;
+            var speed = 3;
+            var strength = 3;
+
+
+            this.sayName = function () {
+                console.log("My ninja name is " + this.name);
+
+            }
+
+            this.showStats = function () {
+                console.log("Name:" + this.name + ",Health:" + this.health + ",Speed:" + speed + ",Strength:" + strength)
+            }
+
+            this.drinkSake = function () {
+                this.health += 10;
+            }
+
+            this.punch = function (banana) {
+                banana.health -= 5;
+                console.log(banana.name + " was punched by " + this.name);
+            }
+
+            this.kick = function (berry) {
+                berry.health -= (15*strength);
+                // or strength += 1;
+                console.log(berry.name + " was kicked by " + this.name);
+            }
+
+        
+
+        }
+
+
+        var ninja1 = new Ninja("Hyabusa");
+        var blueNinja = new Ninja("Goemon");
+        var redNinja = new Ninja("Bill Gates");
+
+        ninja1.sayName();
+        // -> "My ninja name is Hyabusa!"
+        ninja1.showStats();
+
+        // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+        ninja1.drinkSake();
+        ninja1.showStats();
+
+        redNinja.punch(blueNinja);
+        // -> "Goemon was punched by Bill Gates and lost 5 Health!"
+        blueNinja.showStats();
+
+        blueNinja.kick(redNinja);
+        // -> "Bill Gates was kicked by Goemon and lost 15 Health!"
+        // In this case, redNinja Bill Gates lost 15 health because blueNinja Goemon has 1 point of strength
+        redNinja.showStats();
+        blueNinja.showStats();
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
